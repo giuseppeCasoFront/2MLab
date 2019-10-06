@@ -29,6 +29,10 @@ Installare i moduli:
 Lanciare la applicazione in locale
   1. Eseguire il comando ```npm serve```
 
+Lanciare il build
+  1. Eseguire il comando ```npm build````
+  2. Il comando creerá la cartella ```/dist```
+
 
 
 
