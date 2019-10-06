@@ -32,7 +32,7 @@ export default {
     lockState () {
       return this.products.lockState
     }
-  },
+  }
 }
 </script>
 <style lang="scss" scoped src="./Main.scss"></style>
