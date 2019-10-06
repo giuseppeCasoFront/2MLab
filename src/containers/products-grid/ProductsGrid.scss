@@ -23,6 +23,11 @@
     }
   }
 
+  &--isLoading {
+    flex: 0 0 100%;
+    text-align: center
+  }
+
   // TRANSITION:
   // show api response
   .showResponse-leave,
@@ -41,9 +46,16 @@
                 opacity .8s $a-ease-out var(--animation-delay)
   }
 
+  .showResponse-enter-active {
+    &products-grid--isLoading {
+      transition-duration: 0s
+    }
+  }
+
   .showResponse-leave-active {
     transition-duration: .6s;
     transition-timing-function: $a-elastic-out;
+
   }
 
   .showResponse-leave-to {

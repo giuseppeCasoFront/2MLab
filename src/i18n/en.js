@@ -1,4 +1,5 @@
 export default {
+  LOADING: 'Please wait...',
   PAGE_TITLE: '2MLab',
   PRODUCT_PRICE_LABEL: 'Price:',
   PRODUCT_PRICE_VALUE: '{price} euro',

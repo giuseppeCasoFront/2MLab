@@ -12,13 +12,9 @@
           name="header"></router-view>
       </keep-alive>
     </transition>
-    <transition
-      appear
-      name="router">
-      <keep-alive>
-        <router-view class="main__display"/>
-      </keep-alive>
-    </transition>
+    <keep-alive>
+      <router-view class="main__display"/>
+    </keep-alive>
   </section>
 </template>
 <script>

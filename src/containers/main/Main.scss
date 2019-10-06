@@ -12,7 +12,7 @@
     padding: #{$base-space * 2}px #{($base-space * 2) + 5}px;
 
     @include breakpoint(md) {
-      max-width: 95vw;
+      max-width: 85vw;
       margin: auto;
       padding: px2rem($base-space * 8);
     }
@@ -56,35 +56,31 @@
   }
 
   // TRANSITION:
-  // main route enter/leave
-  .router-leave,
-  .router-enter-to {
+  // header route enter/leave
+  .header-leave,
+  .header-enter-to {
     opacity: 1;
     transform: translateY(0);
   }
 
-  .router-leave-active,
-  .router-enter-active {
-    transition: transform 1s $a-ease-out var(--animation-delay),
-                opacity .8s $a-ease-out var(--animation-delay),
+  .header-leave-active,
+  .header-enter-active {
+    transition: transform .8s $a-ease-out,
+                opacity .8s $a-ease-out
   }
 
-  .router-enter-active {
-    transition-delay: .8s
-  }
-
-  .router-leave-active {
+  .header-leave-active {
     transition-duration: .6s;
     transition-timing-function: $a-elastic-out;
   }
 
-  .router-leave-to {
+  .header-leave-to {
     opacity: 0;
-    transform: translateY(-20%);
+    transform: translateY(-100%);
   }
 
-  .router-enter {
+  .header-enter {
     opacity: 0;
-    transform: translateY(20%);
+    transform: translateY(-100%);
   }
 }

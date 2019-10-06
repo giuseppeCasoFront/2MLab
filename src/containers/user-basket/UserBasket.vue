@@ -83,7 +83,8 @@
       <li
         class="user-basket__label"
         v-if="this.$slots['label']"
-        v-html="getContent('label')">
+        v-html="getContent('label')"
+        @click="handleCart">
       </li>
     </ul>
   </aside>

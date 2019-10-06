@@ -4,7 +4,7 @@
     tag="ul"
     class="products-grid"
     name="showResponse">
-    <template v-if="productsList.length > 0">
+    <template v-if="productsList && productsList.length > 0">
       <template v-for="(product, index) in productsList">
         <li
           :key="product.id"
@@ -35,13 +35,18 @@
         </li>
       </template>
     </template>
+    <template v-else>
+      <li
+        key="loading"
+        class="products-grid__cell products-grid--isLoading">{{$t(`message.LOADING`)}}</li>
+    </template>
   </transition-group>
 </template>
 <script>
 import { mapActions, mapState } from 'vuex'
 import { Basket } from '../../helpers/basket'
 export default {
-  name: 'ProductsList',
+  name: 'ProductsGrid',
 
   data () {
     return {

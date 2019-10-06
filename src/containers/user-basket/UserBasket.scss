@@ -8,6 +8,8 @@
   }
 
   &__label {
+    cursor: pointer;
+
     /deep/ p {
       span {
         @include xsmall-size;
@@ -74,6 +76,18 @@
         &:after {
           transform: translateX(-50%) rotate(-45deg)
         }
+
+        @include breakpoint(sm) {
+          &:not([disabled]) {
+            &:hover,
+            &:focus {
+              &:before,
+              &:after {
+                background: $c-violet;
+              }
+            }
+          }
+        }
       }
 
       + #{$user-basket}__cart__row {
@@ -84,15 +98,17 @@
 
   &__items {
     @include text--bold;
+    @include small-size;
 
     appearance: none;
-    border: 1px solid darken($c-red, 20%);
-    background: $c-red;
-    border-radius: 100%;
+    border: 1px solid darken($c-green, 80%);
+    background: darken($c-green, 50%);
+    border-radius: #{$base-border-radius}px;
     color: $c-white;
     display: flex;
-    width: px2rem(20);
-    height: px2rem(20);
+    width: px2rem(24);
+    height: px2rem(24);
+    padding: 0 #{$base-space * 4}px;
     justify-content: center;
 
     transition: background .8s $a-ease-out;
@@ -101,7 +117,8 @@
       &:not([disabled]) {
         &:hover,
         &:focus {
-          background: $c-yellow
+          background: $c-violet;
+          border: 1px solid darken($c-violet, 80%);
         }
       }
     }
