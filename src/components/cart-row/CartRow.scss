@@ -1,0 +1,50 @@
+.cart-row {
+  width: 100%;
+  overflow: hidden;
+
+  > tr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    > td {
+      white-space: nowrap;
+
+      + td {
+        margin-left: #{$base-space}px
+      }
+    }
+  }
+
+  &__image {
+    > figure {
+      margin: 0;
+      padding: 0;
+      width: px2rem(20);
+
+      > img {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+
+  &__name {
+    @include text--bold;
+    @include small-size;
+  }
+
+  &__price {
+    @include small-size
+  }
+
+  &__action {
+    /deep/ .base-button {
+      min-height: px2rem(20)
+    }
+  }
+
+  &__total-label {
+    @include text--bold
+  }
+}

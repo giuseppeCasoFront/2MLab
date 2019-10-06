@@ -1,0 +1,14 @@
+.header-basket {
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+  }
+
+  &__title {
+    @include big-size;
+    @include text--bold;
+
+    color: $c-dark-rey
+  }
+}

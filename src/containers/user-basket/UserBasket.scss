@@ -1,0 +1,213 @@
+.user-basket {
+  $user-basket: &;
+  position: relative;
+
+  &__content {
+    display: flex;
+    align-items: center;
+  }
+
+  &__label {
+    /deep/ p {
+      span {
+        @include xsmall-size;
+        color: lighten($c-dark-rey, 30%);
+        display: block
+      }
+    }
+  }
+
+  &__recap {
+    position: relative;
+
+    + #{$user-basket}__label {
+      margin-left: #{$base-space * 2}px
+    }
+  }
+
+  &__cart {
+    background: $c-yellow;
+    border-radius: #{$base-border-radius}px;
+    padding: #{$base-space * 2}px;
+    position: absolute;
+    overflow-x: hidden;
+    left: 50%;
+    top: calc(100% + 5px);
+
+    transform: translateX(-50%);
+
+    @include breakpoint(xs) {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      z-index: 10;
+    }
+
+    &-close {
+      text-align: right;
+
+      > button {
+        background: none;
+        border: none;
+        height: px2rem(15);
+        width: px2rem(15);
+        padding: 0;
+        position: relative;
+
+        &:before,
+        &:after {
+          content: '';
+          background: $c-dark-rey;
+          position: absolute;
+          left: 50%;
+          top: 0;
+          height: 100%;
+          width: 1px;
+
+          transform-origin: center;
+        }
+
+        &:before {
+          transform: translateX(-50%) rotate(45deg)
+        }
+
+        &:after {
+          transform: translateX(-50%) rotate(-45deg)
+        }
+      }
+
+      + #{$user-basket}__cart__row {
+        margin-top: #{$base-space}px
+      }
+    }
+  }
+
+  &__items {
+    @include text--bold;
+
+    appearance: none;
+    border: 1px solid darken($c-red, 20%);
+    background: $c-red;
+    border-radius: 100%;
+    color: $c-white;
+    display: flex;
+    width: px2rem(20);
+    height: px2rem(20);
+    justify-content: center;
+
+    transition: background .8s $a-ease-out;
+
+    @include breakpoint(sm) {
+      &:not([disabled]) {
+        &:hover,
+        &:focus {
+          background: $c-yellow
+        }
+      }
+    }
+
+    > span {
+      pointer-events: none
+    }
+  }
+
+  &__no-items {
+    white-space: nowrap
+  }
+
+  // TRANSITION:
+  // update items
+  .update-items-leave,
+  .update-items-enter-to {
+    opacity: 1;
+    transform: translateY(0)
+  }
+
+  .update-items-leave-active,
+  .update-items-enter-active {
+    transition: transform .4s $a-ease-out,
+                opacity .4s $a-ease-out;
+  }
+
+  .update-items-leave-active {
+    transition-timing-function: $a-ease-in
+  }
+
+  .update-items-leave-to {
+    opacity: 0;
+    transform: translateY(-25%);
+  }
+
+  .update-items-enter {
+    opacity: 0;
+    transform: translateY(100%)
+  }
+
+  // TRANSITION:
+  // show cart
+  .showCart-leave,
+  .showCart-enter-to {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+  }
+
+  .showCart-leave-active,
+  .showCart-enter-active {
+    transition: transform 1s $a-ease-out,
+                opacity .8s $a-ease-out
+  }
+
+  .showCart-leave-active {
+    transition-duration: .6s;
+    transition-timing-function: $a-elastic-out;
+  }
+
+  .showCart-leave-to {
+    opacity: 0;
+    transform: translateY(50%) translateX(-50%);
+  }
+
+  .showCart-enter {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-50%);
+  }
+
+  // TRANSITION:
+  // show cart row
+  .showCart-row-leave,
+  .showCart-row-enter-to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .showCart-row-leave-active,
+  .showCart-row-enter-active {
+    transition: transform 1s $a-ease-out,
+                opacity .8s $a-ease-out
+  }
+
+  .showCart-row-enter-active {
+    &#{$user-basket}__cart__row--void {
+      transition-delay: .8s;
+    }
+  }
+
+  .showCart-row-leave-active {
+    transition-duration: .6s;
+    transition-timing-function: $a-elastic-out;
+
+    &#{$user-basket}__cart__row--void {
+      transition-duration: 0s
+    }
+  }
+
+  .showCart-row-leave-to {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+
+  .showCart-row-enter {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,19 @@
+//- custom fonts
+$Lato: 'lato';
+
+//- custom fonts weight
+$light: 300;
+$regular: 400;
+$bold: 700;
+
+//- custom layout size
+$base-space: 5;
+$base-border-radius: 3;
+$filter-base-height: 34;
+$base-row-height: 70;
+
+//- custom easing transition
+$a-ease-in: cubic-bezier(.75, -.03, .83, .6);
+$a-ease-out: cubic-bezier(.17, .67, .17, 1.01);
+$a-elastic: cubic-bezier(.08, 1.48, .69, 1.14);
+$a-elastic-out: cubic-bezier(.5,-0.26,.78,.5)

@@ -1,0 +1,66 @@
+.products-grid {
+  --animation-delay: 0s;
+  $products-grid: &;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+
+  &__cell {
+    flex: 0 0 calc((100% / 3) - #{$base-space * 2}px);
+
+    @include breakpoint(xs) {
+      flex: 0 0 100%;
+
+      &:nth-child(n+2) {
+        margin-top: #{$base-space * 2}px
+      }
+    }
+
+    &:nth-child(n+4) {
+      margin-top: #{$base-space * 2}px
+    }
+  }
+
+  // TRANSITION:
+  // show api response
+  .showResponse-leave,
+  .showResponse-enter-to {
+    opacity: 1;
+    transform: translateY(0);
+
+    @include breakpoint(xs) {
+      transform: translateX(0);
+    }
+  }
+
+  .showResponse-leave-active,
+  .showResponse-enter-active {
+    transition: transform 1s $a-ease-out var(--animation-delay),
+                opacity .8s $a-ease-out var(--animation-delay)
+  }
+
+  .showResponse-leave-active {
+    transition-duration: .6s;
+    transition-timing-function: $a-elastic-out;
+  }
+
+  .showResponse-leave-to {
+    opacity: 0;
+    transform: translateY(-20%);
+
+    @include breakpoint(xs) {
+      transform: translateX(20%);
+    }
+  }
+
+  .showResponse-enter {
+    opacity: 0;
+    transform: translateY(20%);
+
+    @include breakpoint(xs) {
+      transform: translateX(-20%);
+    }
+  }
+}

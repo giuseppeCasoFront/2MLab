@@ -1,0 +1,48 @@
+.base-ribbon {
+  --ribbon-color: '#000000';
+  $base-ribbon: &;
+
+  @include text--light;
+  @include small-size;
+
+  color: $c-white;
+  display: flex;
+  position: absolute;
+  text-transform: uppercase;
+
+  &:after {
+    content: "";
+    border-style: solid;
+    border-color: var(--ribbon-color) transparent transparent transparent;
+    bottom: -1em;
+    filter: brightness(0.4);
+    position: absolute;
+  }
+
+  &__label {
+    background-color: var(--ribbon-color);
+    padding: #{$base-space}px #{$base-space * 2}px;
+  }
+
+  &--tl {
+    justify-content: flex-start;
+    top: px2rem(10);
+    left: -10px;
+
+    &:after {
+      border-width: 1em 0 0 px2rem(10);
+      left: 0;
+    }
+  }
+
+  &--tr {
+    justify-content: flex-end;
+    top: px2rem(10);
+    right: -10px;
+
+    &:after {
+      border-width: 1em px2rem(10) 0 0;
+      right: 0;
+    }
+  }
+}
