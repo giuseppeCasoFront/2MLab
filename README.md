@@ -24,11 +24,10 @@ PC:
   4. Salvare
 
 Installare i moduli:
-  1. Entrare nella cartella client che contiene il file package.json
-  2. Eseguire il comando ```npm i```
+  1. Eseguire il comando ```npm i```
 
 Lanciare la applicazione in locale
-  1. Nella stessa cartella client eseguire il comando ```npm serve```
+  1. Eseguire il comando ```npm serve```
 
 
 
