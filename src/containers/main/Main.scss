@@ -12,7 +12,7 @@
     padding: #{$base-space * 2}px #{($base-space * 2) + 5}px;
 
     @include breakpoint(md) {
-      max-width: 85vw;
+      max-width: px2rem(1120);
       margin: auto;
       padding: px2rem($base-space * 8);
     }
